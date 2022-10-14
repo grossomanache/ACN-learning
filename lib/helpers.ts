@@ -1,10 +1,9 @@
 import * as contentful from "contentful";
 import _ from "lodash";
-import { OptionsInterface } from "../interfaces/HelpersInterfaces";
 
-const space_id = process.env.NEXT_PUBLIC_SPACE_ID ?? "";
-const access_token = process.env.NEXT_PUBLIC_DELIVERY_TOKEN ?? "";
-const preview_token = process.env.NEXT_PUBLIC_PREVIEW_TOKEN ?? "";
+const space_id = process.env.NEXT_PUBLIC_SPACE_ID;
+const access_token = process.env.NEXT_PUBLIC_DELIVERY_TOKEN;
+const preview_token = process.env.NEXT_PUBLIC_PREVIEW_TOKEN;
 const environment = process.env.NEXT_PUBLIC_ENVIRONMENT;
 
 const getOptions = (is_preview: boolean) => {
