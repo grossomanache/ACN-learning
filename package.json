@@ -11,12 +11,11 @@
   "dependencies": {
     "algoliasearch": "^4.14.2",
     "contentful": "^9.2.5",
-    "instantsearch.js": "^4.48.0",
     "lodash": "^4.17.21",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-instantsearch-dom": "^6.36.0"
+    "react-instantsearch-hooks-web": "^6.36.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.186",
