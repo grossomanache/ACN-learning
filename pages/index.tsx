@@ -8,6 +8,7 @@ import styles from "../styles/Home.module.css";
 const Home: NextPage = (props) => {
   const page = _.get(props, "page");
   const books = _.get(props, "books");
+
   const {
     fields: { headline },
   } = page;
@@ -31,17 +32,17 @@ const Home: NextPage = (props) => {
 
 export async function getStaticProps() {
   const pageEntries = await getEntriesByContentType("landingPage", "home-page");
+
   let homepageEntry;
   if (pageEntries) {
-    const { items } = pageEntries;
-    homepageEntry = items[0];
+    homepageEntry = pageEntries.items[0];
   }
 
   const bookEntries = await getEntriesByContentType("book");
+
   let bookCollection;
   if (bookEntries) {
-    const { items } = bookEntries;
-    bookCollection = items;
+    bookCollection = bookEntries.items;
   }
 
   return {
