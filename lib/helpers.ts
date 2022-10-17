@@ -7,11 +7,11 @@ const preview_token = process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_TOKEN;
 const environment = process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT;
 
 const getOptions = (is_preview: boolean) => {
-  let options: contentful.CreateClientParams = {
+  const options: contentful.CreateClientParams = {
     space: space_id,
     host: is_preview ? "preview.contentful.com" : undefined,
     accessToken: is_preview ? preview_token : access_token,
-    environment: environment ? environment : "master",
+    environment: environment ?? "master",
     resolveLinks: true,
   };
 
@@ -42,17 +42,16 @@ export const getEntriesByContentType = async (
   const options = getOptions(false);
 
   try {
-    const contentfulClient = contentful.createClient(options); // https://contentful.github.io/contentful.js/contentful/9.1.9/contentful.html#.createClient
+    const contentfulClient = contentful.createClient(options);
     if (contentfulClient) {
-      let params = { content_type, include: 3, "fields.slug": "" }; //include -> to retrieve related data(linked entries) in same request, number of levels is 3
+      let params = { content_type, include: 3, fields: { slug: "" } }; //include -> to retrieve related data(linked entries) in same request, number of levels is 3
 
       if (slug) {
-        params["fields.slug"] = slug;
+        params.fields.slug = slug;
       }
+      console.log(params);
 
-      let entries = await contentfulClient.getEntries(params); // https://contentful.github.io/contentful.js/contentful/9.1.9/ContentfulClientAPI.html#.getEntries
-
-      const items = _.get(entries, "items");
+      let { items } = await contentfulClient.getEntries(params); // https://contentful.github.io/contentful.js/contentful/9.1.9/ContentfulClientAPI.html#.getEntries
 
       return { items };
     } else {

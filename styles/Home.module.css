@@ -28,6 +28,29 @@
   flex-grow: 1;
 }
 
+.hit ol {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.hit li {
+  width: 300px;
+  margin: 10px;
+  border: 1px solid grey;
+  padding: 10px;
+  list-style-type: none;
+}
+
+.hit li h1 {
+  font-size: 25px;
+}
+
+.hit li h2 {
+  font-weight: normal;
+}
+
 .title a {
   color: #0070f3;
   text-decoration: none;
