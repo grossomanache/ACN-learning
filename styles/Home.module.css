@@ -28,6 +28,20 @@
   flex-grow: 1;
 }
 
+.hit ol {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.hit li {
+  width: 300px;
+  margin: 10px;
+  border: 1px solid grey;
+  list-style-type: none;
+}
+
 .title a {
   color: #0070f3;
   text-decoration: none;

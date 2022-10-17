@@ -41,7 +41,7 @@ const Home: NextPage = (props) => {
         <h1 className={styles.title}>{headline}</h1>
         <InstantSearch indexName={indexName} searchClient={searchClient}>
           <SearchBox />
-          <Hits hitComponent={Hit} />
+          <Hits className={styles.hit} hitComponent={Hit} />
         </InstantSearch>
       </main>
 
