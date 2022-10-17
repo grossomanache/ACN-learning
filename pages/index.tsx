@@ -1,12 +1,19 @@
-import _ from "lodash";
 import type { NextPage } from "next";
+import * as contentful from "contentful";
 import Head from "next/head";
 import Image from "next/image";
 import { getEntriesByContentType } from "../lib/helpers";
 import styles from "../styles/Home.module.css";
 import algoliasearch from "algoliasearch";
 import instantsearch from "instantsearch.js";
+import { Hit } from "../components/Hit/Hit";
 import { InstantSearch, SearchBox, Hits } from "react-instantsearch-hooks-web";
+import _ from "lodash";
+
+interface HomePageProps {
+  page: contentful.Entry<unknown> | undefined;
+  books: contentful.Entry<unknown> | undefined;
+}
 
 const Home: NextPage = (props) => {
   const page = _.get(props, "page");
@@ -34,7 +41,7 @@ const Home: NextPage = (props) => {
         <h1 className={styles.title}>{headline}</h1>
         <InstantSearch indexName={indexName} searchClient={searchClient}>
           <SearchBox />
-          <Hits />
+          <Hits hitComponent={Hit} />
         </InstantSearch>
       </main>
 
@@ -60,8 +67,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      page: homepageEntry ?? {},
-      books: bookCollection ?? {},
+      page: homepageEntry,
+      books: bookCollection,
     },
   };
 }
