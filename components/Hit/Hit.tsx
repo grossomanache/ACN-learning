@@ -1,13 +1,16 @@
 import { forEach } from "lodash";
 import { NextComponentType } from "next";
+import { HitProps } from "../../interfaces/components";
 import { extractFromLocale } from "../../lib/localization";
 
-export const Hit: NextComponentType = ({ hit }: any) => {
+export const Hit = (props: HitProps): JSX.Element => {
   const language = "en-US";
 
   const {
-    fields: { status, title, rating },
-  } = hit;
+    hit: {
+      fields: { status, title, rating },
+    },
+  } = props;
 
   return (
     <>
