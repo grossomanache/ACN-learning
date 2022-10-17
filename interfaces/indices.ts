@@ -3,6 +3,5 @@ interface Localization {
 }
 
 export interface BookIndex {
-  objectID: string;
-  fields: { status: { [key: string]: string } };
+  hit: { objectID: string; fields: { status: { [key: string]: string } } };
 }
