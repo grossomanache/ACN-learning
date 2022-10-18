@@ -12,8 +12,8 @@ export const HitTemplate: FunctionComponent<any> = ({ hit }) => {
       <Image
         src={`http:${image.file.url}`}
         alt={image.title}
-        height={300}
-        width={200}
+        height={200}
+        width={150}
       />
       <h2>Status: {status}</h2>
     </div>
