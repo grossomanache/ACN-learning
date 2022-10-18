@@ -1,20 +1,21 @@
 import Image from "next/image";
 import { FunctionComponent } from "react";
+import styles from "../../styles/HitTemplate.module.css";
 
 export const HitTemplate: FunctionComponent<any> = ({ hit }) => {
   const { title, status, rating, image } = hit;
 
   return (
-    <>
+    <div className={styles.container}>
       <h1>{title}</h1>
-      <h2>Status: {status}</h2>
+      <p>Rating: {rating ? `${rating}/5` : "N/A"}</p>
       <Image
         src={`http:${image.file.url}`}
         alt={image.title}
-        width={100}
-        height={100}
+        height={300}
+        width={200}
       />
-      <p>Rating: {rating ? `${rating}/5` : "N/A"}</p>
-    </>
+      <h2>Status: {status}</h2>
+    </div>
   );
 };
