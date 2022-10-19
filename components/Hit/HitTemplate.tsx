@@ -1,11 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent } from "react";
 import { Highlight } from "react-instantsearch-hooks-web";
-import { convertHighlightedText } from "../../lib/helpers";
-import {
-  getHighlightedText,
-  transformHighlightedText,
-} from "../../lib/highlighter";
 import styles from "../../styles/HitTemplate.module.css";
 
 export const HitTemplate: FunctionComponent<any> = ({ hit }) => {

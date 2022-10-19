@@ -62,7 +62,3 @@ export const getEntriesByContentType = async (
     return false;
   }
 };
-
-export const convertHighlightedText = (markdownText: string) => {
-  return markdownText.replace("<mark>", "<b>").replace("</mark>", "</b>");
-};
