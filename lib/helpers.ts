@@ -1,5 +1,5 @@
 import * as contentful from "contentful";
-import _ from "lodash";
+import _, { replace } from "lodash";
 
 const space_id = process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID;
 const access_token = process.env.NEXT_PUBLIC_CONTENTFUL_DELIVERY_TOKEN;
@@ -61,4 +61,8 @@ export const getEntriesByContentType = async (
     console.log("any errors? ->", error);
     return false;
   }
+};
+
+export const convertHighlightedText = (markdownText: string) => {
+  return markdownText.replace("<mark>", "<b>").replace("</mark>", "</b>");
 };
