@@ -6,3 +6,12 @@
 .container img {
   object-fit: contain;
 }
+
+.bookName {
+  font-size: 25px;
+}
+
+.author {
+  font-size: 20px;
+  color: grey;
+}

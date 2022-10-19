@@ -1,13 +1,31 @@
 import Image from "next/image";
 import { FunctionComponent } from "react";
+import { Highlight } from "react-instantsearch-hooks-web";
 import styles from "../../styles/HitTemplate.module.css";
 
 export const HitTemplate: FunctionComponent<any> = ({ hit }) => {
-  const { title, status, rating, image } = hit;
+  const {
+    title,
+    status,
+    rating,
+    image,
+    author: { name: authorName },
+  } = hit;
 
   return (
     <div className={styles.container}>
-      <h1>{title}</h1>
+      <Highlight
+        hit={hit}
+        className={styles.bookName}
+        attribute="title"
+        highlightedTagName="b"
+      />
+      <Highlight
+        hit={hit}
+        className={styles.author}
+        attribute="author.name"
+        highlightedTagName="b"
+      />
       <p>Rating: {rating ? `${rating}/5` : "N/A"}</p>
       <Image
         src={`http:${image.file.url}`}
